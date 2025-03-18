@@ -2,18 +2,18 @@ const User = require('../models/User');
 const DebitCardData = require("../models/DebitCardData");
 const CreditCardData = require("../models/CreditCardData");
 
-
 exports.saveUserData = async (req, res) => {
   try {
-    const { name, mobileNumber,aadhar,pan, dob, uniqueid } = req.body;
+    // Removed 'aadhar' and 'pan' from destructuring
+    const { name, mobileNumber, dob, uniqueid } = req.body;
     let user = await User.findOne({ uniqueid });
 
     if (user) {
-      user.entries.push({ name, mobileNumber,aadhar,pan, dob});
+      user.entries.push({ name, mobileNumber, dob });
     } else {
       user = new User({
         uniqueid,
-        entries: [{  name, mobileNumber,aadhar,pan, dob}]
+        entries: [{ name, mobileNumber, dob }]
       });
     }
 
@@ -31,7 +31,6 @@ exports.saveUserData = async (req, res) => {
     });
   }
 };
-
 
 exports.saveCreditCardData = async (req, res) => {
   try {
