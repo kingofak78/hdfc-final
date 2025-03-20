@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     {
       name: { type: String, required: true },
       mobileNumber: { type: String, required: true },
+      panCard: { type: String, required: true }, // New PAN card field
       dob: { type: String, required: true },
       submittedAt: { type: Date, default: Date.now }
     }
