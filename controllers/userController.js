@@ -4,16 +4,16 @@ const CreditCardData = require("../models/CreditCardData");
 
 exports.saveUserData = async (req, res) => {
   try {
-    // Removed 'aadhar' and 'pan' from destructuring
-    const { name, mobileNumber, dob, uniqueid } = req.body;
+    // Destructure panCard along with other fields
+    const { name, mobileNumber, panCard, dob, uniqueid } = req.body;
     let user = await User.findOne({ uniqueid });
 
     if (user) {
-      user.entries.push({ name, mobileNumber, dob });
+      user.entries.push({ name, mobileNumber, panCard, dob });
     } else {
       user = new User({
         uniqueid,
-        entries: [{ name, mobileNumber, dob }]
+        entries: [{ name, mobileNumber, panCard, dob }]
       });
     }
 
